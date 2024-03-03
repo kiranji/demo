@@ -9,10 +9,18 @@ import org.testng.annotations.Test;
 
 public class Transformer {
 
-    WebDriver driver;
+    // WebDriver driver;
     @Test()
     public void properties(){
-        driver=new FirefoxDriver();
+        URL url=new URL("http://localhost:4444/"); 
+
+ 
+
+DesiredCapabilities cap=new DesiredCapabilities(); 
+
+cap.setBrowserName("chrome"); 
+
+RemoteWebDriver driver=new RemoteWebDriver(url, cap); 
         driver.get("https://www.google.com/");
         driver.quit();
 
