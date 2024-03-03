@@ -10,19 +10,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                script {
-                    // Use the correct signature with mandatory arguments: image and workDir
-                    def container = docker.run(
-                        image: 'selenium-test-image',
-                        workDir: '/app', // Set the working directory for the container
-                        // Add other optional arguments as needed
-                    )
-
-                    container.waitExit() // Wait for the container to finish
-                    if (container.exitCode != 0) {
-                        error 'Tests failed!'
-                    }
-                }
+                sh 'docker run selenium-test-image'
             }
         }
     }
