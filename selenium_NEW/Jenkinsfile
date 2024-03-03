@@ -14,10 +14,7 @@ pipeline {
                 script {
                     def container = docker.run(
                         image: 'selenium-test-image',
-                        // Optional: mount test data volume
-                        volumes: [ '/path/to/test/data:/app/test-data' ],
-                        // Optional: set environment variables
-                        environment: ['TEST_ENV': 'qa']
+                       
                     )
                     container.waitExit() // Wait for the container to finish
                     if (container.exitCode != 0) {
