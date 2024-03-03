@@ -2,6 +2,11 @@ pipeline {
     agent any // Specify an agent if needed
 
     stages {
+        stage('grid') {
+            steps {
+                sh 'docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.1.2-20220217'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'docker build -t selenium-test-image selenium_NEW/.' // Build the Docker image
