@@ -1,0 +1,29 @@
+pipeline {
+    agent any // Specify an agent if needed
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker build -t selenium-test-image .' // Build the Docker image
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    def container = docker.run(
+                        image: 'selenium-test-image',
+                        // Optional: mount test data volume
+                        volumes: [ '/path/to/test/data:/app/test-data' ],
+                        // Optional: set environment variables
+                        environment: ['TEST_ENV': 'qa']
+                    )
+                    container.waitExit() // Wait for the container to finish
+                    if (container.exitCode != 0) {
+                        error 'Tests failed!'
+                    }
+                }
+            }
+        }
+    }
+}
