@@ -9,13 +9,14 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Transformer {
 
     WebDriver driver;
     @Test()
-    public void properties(){
+    public void properties() throws MalformedURLException {
 //        driver=new FirefoxDriver();
         URL url=new URL("http://localhost:4444/");
 
