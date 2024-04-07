@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -18,16 +19,18 @@ public class Transformer {
     @Test()
     public void properties() throws MalformedURLException {
 //        driver=new FirefoxDriver();
-//        URL url=new URL("http://localhost:4444/");
+        URL url=new URL("http://44.223.10.242:4444/");
 
 
 
-//        DesiredCapabilities cap=new DesiredCapabilities();
+        DesiredCapabilities cap=new DesiredCapabilities();
 
-//        cap.setBrowserName("chrome");
+        cap.setBrowserName("chrome");
 
-        ChromeDriver driver=new ChromeDriver();
+        RemoteWebDriver driver=new RemoteWebDriver(url, cap);
+//        ChromeDriver driver=new ChromeDriver();
         driver.get("https://www.google.com/");
+        System.out.println(driver.getTitle());
         driver.quit();
 
     }
