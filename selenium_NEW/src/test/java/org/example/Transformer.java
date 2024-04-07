@@ -30,6 +30,7 @@ public class Transformer {
         RemoteWebDriver driver=new RemoteWebDriver(url, cap);
 //        ChromeDriver driver=new ChromeDriver();
         driver.get("https://www.google.com/");
+        System.out.println("PRINTING PAGE TITLE");
         System.out.println(driver.getTitle());
         driver.quit();
 
