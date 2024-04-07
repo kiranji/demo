@@ -1,4 +1,4 @@
-FROM selenium/chrome-headless
+FROM selenium/standalone-chrome
 
 WORKDIR /app
 
