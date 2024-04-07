@@ -1,16 +1,11 @@
+FROM selenium/chrome-headless  # Or selenium/standalone-chrome
 
-FROM ubuntu:latest
-# Install Java and xvfb (X virtual framebuffer) for headless browsing
-RUN apt-get update && apt-get install -y openjdk-11-jre
-
-# Install Maven
-RUN apt-get install -y maven
-
-# Set working directory
 WORKDIR /app
 
-# Copy test code and dependencies
-COPY . .
+COPY pom.xml ./
+RUN mvn install
 
-# Execute tests using the Maven wrapper
+COPY src/main/java/ .:/app/src/main/java
+COPY src/test/java/ .:/app/src/test/java
+
 CMD ["mvn", "test"]
