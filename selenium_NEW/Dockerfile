@@ -1,11 +1,10 @@
-FROM selenium/standalone-chrome
+# Base image
+FROM maven:3.8.5-openjdk-11-slim
 
+# Copy code from local to image
+COPY ./ /app
+# Specify working directory
 WORKDIR /app
-
-COPY pom.xml ./
-RUN mvn install
-
-COPY src/main/java/ .:/app/src/main/java
-COPY src/test/java/ .:/app/src/test/java
-
-CMD ["mvn", "test"]
+# Execute command at creation of image
+RUN mvn clean compile
+CMD mvn test
