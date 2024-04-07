@@ -18,15 +18,15 @@ public class Transformer {
     @Test()
     public void properties() throws MalformedURLException {
 //        driver=new FirefoxDriver();
-        URL url=new URL("http://localhost:4444/");
+//        URL url=new URL("http://localhost:4444/");
 
 
 
-        DesiredCapabilities cap=new DesiredCapabilities();
+//        DesiredCapabilities cap=new DesiredCapabilities();
 
-        cap.setBrowserName("chrome");
+//        cap.setBrowserName("chrome");
 
-        RemoteWebDriver driver=new RemoteWebDriver(url, cap);
+        ChromeDriver driver=new ChromeDriver();
         driver.get("https://www.google.com/");
         driver.quit();
 
