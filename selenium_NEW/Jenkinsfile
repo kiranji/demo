@@ -4,7 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t selenium-tests selenium_NEW/. && docker run selenium-tests' // Build and run tests in container
+                sh 'docker build -t selenium-tests selenium_NEW/.' // Build 
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'docker run selenium-tests' // Run tests in container
             }
         }
     }
