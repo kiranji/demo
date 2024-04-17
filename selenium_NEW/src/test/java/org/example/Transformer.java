@@ -19,7 +19,7 @@ public class Transformer {
     @Test()
     public void properties() throws MalformedURLException {
 //        driver=new FirefoxDriver();
-        URL url=new URL("http://100.27.27.68:4444/");
+        URL url=new URL("https://127.0.0.1:4444/");
 
 
 
